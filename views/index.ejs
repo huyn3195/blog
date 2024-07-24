@@ -2,7 +2,18 @@
 <body>
     <h1>About</h1>
     <p>
-        
+     <% if (posts.length>0) { %>
+         <% posts.forEach(post => { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                  <h2 class="card-title"><%= post.title %></h2>
+                  <p class="card-text"><%= post.content %></p>
+                </div>
+              </div>
+        <% }); %>
+     <% }else{ %>
+        <p>No posts yet. <a href="/blog">Create a new post</a>.</p>
+    <% } %>
     </p>
 </body>
 <%- include('partials/footer.ejs') %>
